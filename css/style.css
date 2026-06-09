@@ -172,3 +172,149 @@ footer {
 #projects .btn-outline-light {
     margin-right: 0 !important;
 }
+/* ===== LIGHT MODE OVERRIDE - DARK MODE NTE THAZHE IDANAM ===== */
+body.light-mode {
+    background-color: #ffffff !important;
+    color: #212529 !important;
+}
+
+body.light-mode :root {
+    --bs-body-bg: #ffffff !important;
+    --bs-body-color: #212529 !important;
+    --bs-dark: #f8f9fa !important;
+    --bs-light: #ffffff !important;
+}
+
+/* Remove Bootstrap bg-light white */
+body.light-mode .bg-light {
+    background-color: #f8f9fa !important;
+}
+
+/* Navbar Light */
+body.light-mode .navbar-dark {
+    background-color: #ffffff !important;
+    border-bottom: 1px solid #dee2e6 !important;
+}
+
+body.light-mode .navbar-dark .nav-link,
+body.light-mode .navbar-dark .navbar-brand {
+    color: #212529 !important;
+}
+
+/* Cards Light - Skills, Education, Projects */
+body.light-mode .card,
+body.light-mode .skill-card,
+body.light-mode .project-card,
+body.light-mode #contact .card,
+body.light-mode .timeline .card {
+    background-color: #ffffff !important;
+    border: 1px solid #dee2e6 !important;
+    color: #212529 !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+}
+
+body.light-mode .card-title,
+body.light-mode .skill-card h5 {
+    color: #212529 !important;
+}
+
+body.light-mode .card-text,
+body.light-mode .about-info p {
+    color: #6c757d !important;
+}
+
+body.light-mode .text-muted {
+    color: #6c757d !important;
+}
+
+body.light-mode .about-info strong {
+    color: #212529 !important;
+}
+
+/* Hero Section Light */
+body.light-mode .hero-section {
+    background: linear-gradient(135deg, #e3f2fd, #bbdefb) !important;
+}
+
+body.light-mode .hero-section h1,
+body.light-mode .hero-section p {
+    color: #212529 !important;
+}
+
+/* Section Headings Light */
+body.light-mode h2 {
+    color: #0d6efd !important;
+}
+
+body.light-mode .text-primary {
+    color: #0d6efd !important;
+}
+
+/* Contact Form Light */
+body.light-mode .form-control {
+    background-color: #ffffff !important;
+    border: 1px solid #ced4da !important;
+    color: #212529 !important;
+}
+
+body.light-mode .form-control:focus {
+    background-color: #ffffff !important;
+    border-color: #86b7fe !important;
+    color: #212529 !important;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25) !important;
+}
+
+body.light-mode .form-control::placeholder {
+    color: #6c757d !important;
+}
+
+body.light-mode .form-label {
+    color: #212529 !important;
+}
+
+/* Progress Bars Light */
+body.light-mode .progress {
+    background-color: #e9ecef !important;
+}
+
+/* Footer Light */
+body.light-mode footer {
+    background-color: #f8f9fa !important;
+    border-top: 1px solid #dee2e6 !important;
+    color: #212529 !important;
+}
+
+/* Buttons Light */
+body.light-mode .btn-warning,
+body.light-mode .btn-primary {
+    background-color: #0d6efd !important;
+    border-color: #0d6efd !important;
+    color: #ffffff !important;
+}
+
+body.light-mode .btn-warning:hover,
+body.light-mode .btn-primary:hover {
+    background-color: #0b5ed7 !important;
+    border-color: #0a58ca !important;
+}
+
+body.light-mode .btn-outline-light {
+    color: #212529 !important;
+    border-color: #212529 !important;
+}
+
+body.light-mode .btn-outline-light:hover {
+    background-color: #212529 !important;
+    color: #ffffff !important;
+}
+
+body.light-mode #theme-toggle {
+    color: #212529 !important;
+    border-color: #212529 !important;
+}
+
+/* Profile border light mode il */
+body.light-mode .profile-img {
+    border: 4px solid #0d6efd !important;
+    box-shadow: 0 0 25px rgba(13, 110, 253, 0.4) !important;
+}
