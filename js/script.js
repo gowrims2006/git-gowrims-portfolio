@@ -24,16 +24,12 @@ const contactForm = document.getElementById('contactForm');
 if (contactForm) {
     contactForm.addEventListener('submit', function (e) {
         e.preventDefault();
-
-        // Get form fields
         const name = document.getElementById('name');
         const email = document.getElementById('email');
         const subject = document.getElementById('subject');
         const message = document.getElementById('message');
-
         let isValid = true;
 
-        // Validate Name
         if (name.value.trim() === '') {
             name.classList.add('is-invalid');
             isValid = false;
@@ -42,7 +38,6 @@ if (contactForm) {
             name.classList.add('is-valid');
         }
 
-        // Validate Email
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email.value.trim())) {
             email.classList.add('is-invalid');
@@ -52,7 +47,6 @@ if (contactForm) {
             email.classList.add('is-valid');
         }
 
-        // Validate Subject
         if (subject.value.trim() === '') {
             subject.classList.add('is-invalid');
             isValid = false;
@@ -61,7 +55,6 @@ if (contactForm) {
             subject.classList.add('is-valid');
         }
 
-        // Validate Message
         if (message.value.trim() === '') {
             message.classList.add('is-invalid');
             isValid = false;
@@ -70,7 +63,6 @@ if (contactForm) {
             message.classList.add('is-valid');
         }
 
-        // If valid, show success message
         if (isValid) {
             alert('Message sent successfully! Thank you for contacting me.');
             contactForm.reset();
@@ -88,7 +80,6 @@ let isDeleting = false;
 
 function typeEffect() {
     const currentWord = words[wordIndex];
-
     if (isDeleting) {
         typingText.textContent = currentWord.substring(0, charIndex - 1);
         charIndex--;
@@ -105,60 +96,55 @@ function typeEffect() {
         wordIndex = (wordIndex + 1) % words.length;
         setTimeout(typeEffect, 500);
     } else {
-        setTimeout(typeEffect, isDeleting ? 50 : 100);
+        setTimeout(typeEffect, isDeleting? 50 : 100);
     }
 }
-
-if (typingText) {
-    typeEffect();
-}
+if (typingText) typeEffect();
 
 // 4. SCROLL-TO-TOP BUTTON
 const scrollTopBtn = document.getElementById('scrollTop');
-
-window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 300) {
-        scrollTopBtn.style.display = 'block';
-    } else {
-        scrollTopBtn.style.display = 'none';
-    }
-});
-
-scrollTopBtn.addEventListener('click', () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+if(scrollTopBtn) {
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            scrollTopBtn.style.display = 'block';
+        } else {
+            scrollTopBtn.style.display = 'none';
+        }
     });
-});
-
-// 5. BONUS: DARK/LIGHT MODE TOGGLE
-const themeToggle = document.getElementById('themeToggle');
-const body = document.body;
-
-// Check for saved theme
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme === 'dark') {
-    body.classList.add('dark-mode');
-    themeToggle.innerHTML = '<i class="bi bi-sun-fill"></i>';
+    scrollTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
 }
 
-themeToggle.addEventListener('click', () => {
-    body.classList.toggle('dark-mode');
+// 5. DARK/LIGHT MODE TOGGLE - FIXED
+document.addEventListener('DOMContentLoaded', function() {
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    const body = document.body;
 
-    if (body.classList.contains('dark-mode')) {
-        themeToggle.innerHTML = '<i class="bi bi-sun-fill"></i>';
-        localStorage.setItem('theme', 'dark');
-    } else {
-        themeToggle.innerHTML = '<i class="bi bi-moon-fill"></i>';
-        localStorage.setItem('theme', 'light');
+    // Load saved theme
+    if (localStorage.getItem('theme') === 'light') {
+        body.classList.add('light-mode');
+        if(themeIcon) themeIcon.classList.replace('fa-moon', 'fa-sun');
+    }
+
+    if(themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('light-mode');
+
+            if (body.classList.contains('light-mode')) {
+                if(themeIcon) themeIcon.classList.replace('fa-moon', 'fa-sun');
+                localStorage.setItem('theme', 'light');
+            } else {
+                if(themeIcon) themeIcon.classList.replace('fa-sun', 'fa-moon');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
     }
 });
 
-// 6. BONUS: ANIMATED SKILL BARS ON SCROLL
-const observerOptions = {
-    threshold: 0.5
-};
-
+// 6. ANIMATED SKILL BARS ON SCROLL
+const observerOptions = { threshold: 0.5 };
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -176,6 +162,4 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 const skillsSection = document.getElementById('skills');
-if (skillsSection) {
-    observer.observe(skillsSection);
-}
+if (skillsSection) observer.observe(skillsSection);
