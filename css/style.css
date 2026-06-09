@@ -161,3 +161,14 @@ footer {
         height: 150px !important;
     }
 }
+/* FORCE LIVE DEMO TO RIGHT SIDE */
+#projects .mt-auto {
+    display: flex !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    margin-top: auto !important;
+}
+
+#projects .btn-outline-light {
+    margin-right: 0 !important;
+}
