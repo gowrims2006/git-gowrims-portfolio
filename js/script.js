@@ -116,7 +116,7 @@ if(scrollTopBtn) {
     });
 }
 
-// 5. DARK/LIGHT MODE TOGGLE - FIXED
+// 5. DARK/LIGHT MODE TOGGLE - FINAL FIXED
 document.addEventListener('DOMContentLoaded', function() {
     const themeToggle = document.getElementById('theme-toggle');
     const themeIcon = document.getElementById('theme-icon');
@@ -125,24 +125,35 @@ document.addEventListener('DOMContentLoaded', function() {
     // Load saved theme
     if (localStorage.getItem('theme') === 'light') {
         body.classList.add('light-mode');
-        if(themeIcon) themeIcon.classList.replace('fa-moon', 'fa-sun');
+        if(themeIcon) {
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        }
+    } else {
+        if(themeIcon) {
+            themeIcon.classList.remove('fa-sun');
+            themeIcon.classList.add('fa-moon');
+        }
     }
 
     if(themeToggle) {
-        themeToggle.addEventListener('click', () => {
+        themeToggle.addEventListener('click', function() {
             body.classList.toggle('light-mode');
 
             if (body.classList.contains('light-mode')) {
-                if(themeIcon) themeIcon.classList.replace('fa-moon', 'fa-sun');
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
                 localStorage.setItem('theme', 'light');
             } else {
-                if(themeIcon) themeIcon.classList.replace('fa-sun', 'fa-moon');
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
                 localStorage.setItem('theme', 'dark');
             }
         });
+    } else {
+        console.log('Error: theme-toggle button not found!');
     }
 });
-
 // 6. ANIMATED SKILL BARS ON SCROLL
 const observerOptions = { threshold: 0.5 };
 const observer = new IntersectionObserver((entries) => {
