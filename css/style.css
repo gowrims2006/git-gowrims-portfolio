@@ -134,13 +134,16 @@ footer {
 }
 
 /* Purple color fix for Bootstrap */
-.text-purple, .bg-purple {
-    color: #9c27b0 !important;
-}
-.bg-purple {
-    background-color: #9c27b0 !important;
+/* Progress bar text fix */
+.progress-bar {
+    color: #fff !important;
+    font-weight: 600;
 }
 
+.bg-purple {
+    background-color: #9c27b0 !important;
+    color: #fff !important; /* Text white aakum */
+}
 /* PERFECT CIRCLE PROFILE - NO OVAL */
 .profile-img {
     width: 200px !important;
